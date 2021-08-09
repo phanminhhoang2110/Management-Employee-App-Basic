@@ -30,6 +30,6 @@ public class Worker extends Employee {
 
     @Override
     public String toString() {
-        return "Công nhân : " + " " + getName() + " " + getAge() + " " + getSex() + " Cấp Bậc: " + getLevel();
+        return "Công nhân: " + getName() + " - " + getAge() + " - " + getSex() + " - Cấp Bậc: " + getLevel();
     }
 }

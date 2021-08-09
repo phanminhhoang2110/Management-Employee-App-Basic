@@ -30,7 +30,7 @@ public class Engineer extends Employee {
 
     @Override
     public String toString() {
-        return "Kĩ sư : " + " " + getName() + " " + getAge() + " " + getSex() + " Chuyên Ngành: " + getSpecialized();
+        return "Kĩ sư: " + getName() + " - " + getAge() + " - " + getSex() + " - Chuyên Ngành: " + getSpecialized();
     }
 
 }

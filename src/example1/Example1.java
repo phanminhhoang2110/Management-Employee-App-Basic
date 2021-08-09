@@ -37,13 +37,16 @@ public class Example1 {
         System.out.print("Nhập lựa chọn của bạn: ");
     }
 
-    public static int checkTypeIntInput(Scanner s) {
+    public static int checkTypeIntInput(Scanner s, int min, int max, String messageBound) {
         int choice = 0;
         do {
             try {
                 String choiceFromInput = s.nextLine();
                 choice = Integer.parseInt(choiceFromInput);
-                break;
+                if (choice >= min && choice <= max) {
+                    break;
+                }
+                System.out.println(messageBound);
             } catch (NumberFormatException e) {
                 System.out.println("Bạn đã nhập sai, vui lòng nhập lại");
             }
@@ -59,11 +62,11 @@ public class Example1 {
         int isRepeat = 1;
         menu();
         do {
-            choice = checkTypeIntInput(scanner);
+            choice = checkTypeIntInput(scanner,1,4,constant.REENTER_CHOICE);
             switch (choice) {
                 case 1:
                     addEmployee();
-                    int e = checkTypeIntInput(scanner);
+                    int e = checkTypeIntInput(scanner,1,3,constant.REENTER_CHOICE);
                     String result;
                     switch (e) {
                         case 1:
@@ -78,8 +81,6 @@ public class Example1 {
                             result = managementService.addNewEmployee(constant.WORKER);
                             System.out.println(result);
                             break;
-                        default:
-                            System.out.println("Vui lòng nhập lại lựa chọn");
                     }
                     break;
                 case 2:
@@ -100,8 +101,6 @@ public class Example1 {
                 case 4:
                     isRepeat = 0;
                     break;
-                default:
-                    System.out.println("Vui lòng nhập lại lựa chọn");
             }
             if (choice != 4) {
                 menu();

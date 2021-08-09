@@ -30,6 +30,6 @@ public class Staff extends Employee{
     
     @Override
     public String toString() {
-        return "Nhân viên : " + " " + getName() + " " + getAge() + " " + getSex() + " Công việc: " + getMission();
+        return "Nhân viên: " + getName() + " - " + getAge() + " - " + getSex() + " - Công việc: " + getMission();
     }
 }

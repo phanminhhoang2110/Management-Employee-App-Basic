@@ -40,12 +40,7 @@ public class ManagementService {
         System.out.print("Nhập tên: ");
         employee.setName(checkEmpty(scanner.nextLine(), scanner));
         System.out.print("Nhập tuổi: ");
-        int age = Example1.checkTypeIntInput(scanner);
-        while (age < 18 || age > 65) {
-            System.out.println("Công ty chỉ chấp nhận nhân viên có độ tuổi từ 18 đến 65 !");
-            System.out.print("Vui lòng nhập lại: ");
-            age = Example1.checkTypeIntInput(scanner);
-        }
+        int age = Example1.checkTypeIntInput(scanner,constant.DOWN_BOUND_AGE,constant.UP_BOUND_AGE,constant.REENTER_AGE);
         employee.setAge(age);
         String sex = "";
         do {
@@ -91,11 +86,7 @@ public class ManagementService {
             worker = (Worker) addCommon(worker, scanner);
             System.out.print("Nhập cấp bậc: ");
             int level = 0;
-            level = Example1.checkTypeIntInput(scanner);
-            while (level <= 0 || level > 10) {
-                System.out.print("Cấp bậc của một công nhân là từ 1 -> 10 : ");
-                level = Example1.checkTypeIntInput(scanner);
-            }
+            level = Example1.checkTypeIntInput(scanner,constant.DOWN_BOUND_LEVEL,constant.UP_BOUND_LEVEL,constant.REENTER_LEVEL);
             worker.setLevel(level);
             add = employees.add(worker);
         }
