@@ -84,11 +84,15 @@ public class Example1 {
                     break;
                 case 2:
                     String keyword = "";
-                    do {
-                        System.out.print("Vui lòng nhập tên người bạn muốn tìm: ");
-                        keyword = scanner.nextLine();
-                    } while (keyword.isEmpty());
-                    managementService.searchEmployeeByName(keyword, (ArrayList<Employee>) managementService.getEmployees());
+                    if (managementService.getEmployees().size() == 0) {
+                        System.out.println("Chưa có dữ liệu !");
+                    } else {
+                        do {
+                            System.out.print("Vui lòng nhập tên người bạn muốn tìm: ");
+                            keyword = scanner.nextLine();
+                        } while (keyword.isEmpty());
+                        managementService.searchEmployeeByName(keyword, (ArrayList<Employee>) managementService.getEmployees());
+                    }
                     break;
                 case 3:
                     managementService.viewListEmployee((ArrayList<Employee>) managementService.getEmployees());
@@ -99,9 +103,9 @@ public class Example1 {
                 default:
                     System.out.println("Vui lòng nhập lại lựa chọn");
             }
-            if(choice != 4){
+            if (choice != 4) {
                 menu();
-            }else{
+            } else {
                 System.out.println("CHÚC BẠN MỘT BUỔI LÀM VIỆC HIỆU QUẢ !");
             }
         } while (isRepeat == 1);

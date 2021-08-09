@@ -41,7 +41,7 @@ public class ManagementService {
         employee.setName(checkEmpty(scanner.nextLine(), scanner));
         System.out.print("Nhập tuổi: ");
         int age = Example1.checkTypeIntInput(scanner);
-        while(age < 18 || age > 65){
+        while (age < 18 || age > 65) {
             System.out.println("Công ty chỉ chấp nhận nhân viên có độ tuổi từ 18 đến 65 !");
             System.out.print("Vui lòng nhập lại: ");
             age = Example1.checkTypeIntInput(scanner);
@@ -117,10 +117,15 @@ public class ManagementService {
     }
 
     public void searchEmployeeByName(String keyword, ArrayList<Employee> employees) {
+        int count = 0;
         for (Employee employee : employees) {
             if (employee.getName().toLowerCase().contains(keyword.toLowerCase())) {
+                count++;
                 System.out.println(employee.toString());
             }
+        }
+        if (count == 0) {
+            System.out.println("Không tìm thấy ai tên giống bạn cần tìm !");
         }
     }
 
